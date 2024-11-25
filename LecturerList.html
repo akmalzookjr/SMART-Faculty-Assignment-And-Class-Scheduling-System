@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer List</title>
+    <link rel="stylesheet" href="style3.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="logo uptm.png" alt="UPTM Logo" class="logo-normal">
+            <img src="icon uptm.png" alt="UPTM Icon" class="logo-small">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> Info</a></li>
+            <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Lecturer</a></li>
+            <li><a href="#"><i class="fas fa-calendar-alt"></i> Schedule</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <input type="text" placeholder="Search here...">
+            <div class="profile-icons">
+                <button class="icon bg-icon"><i class="fas fa-moon"></i></button>
+                <button class="icon bg-icon"><i class="fas fa-bell"></i></button>
+                <button class="icon bg-icon"><i class="fas fa-cog"></i></button>
+                <button class="icon bg-icon"><i class="fas fa-calendar"></i></button>
+                <div class="profile-pic bg-icon-profile">
+                    <img src="profile-pic-placeholder.png" alt="Profile">
+                </div>
+            </div>
+        </div>
+
+        <div class="lecturer-list">
+            <h2>Lecturer List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Credit Hour</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Muhammad Akmal Bin Marzuki</td>
+                        <td><span class="status full">Full</span></td>
+                        <td>14/14</td>
+                        <td>
+                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Muhammad Ali Bin Abu</td>
+                        <td><span class="status free">Free</span></td>
+                        <td>10/14</td>
+                        <td>
+                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

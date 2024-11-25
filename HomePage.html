@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPTM Smart System - Home</title>
+    <link rel="stylesheet" href="css/style2.css">
+    <!-- Link to Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <img src="logo uptm.png" alt="UPTM Logo" class="logo-normal">
+            <img src="icon uptm.png" alt="UPTM Icon" class="logo-small"> <!-- Add another logo for closed state -->
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-info-circle"></i></span>
+                    <span class="link-text">Info</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                    <span class="link-text">Lecturer</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fas fa-calendar-alt"></i></span>
+                    <span class="link-text">Schedule</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <button class="icon bg-icon" id="toggle-btn"><i class="fas fa-bars"></i></button> <!-- Toggle button to open/close sidebar -->
+            <input type="text" placeholder="Search here...">
+            <div class="profile-icons">
+                <button class="icon bg-icon"><i class="fas fa-moon"></i></button>
+                <button class="icon bg-icon"><i class="fas fa-bell"></i></button>
+                <button class="icon bg-icon"><i class="fas fa-cog"></i></button>
+                <button class="icon bg-icon"><i class="fas fa-calendar"></i></button>
+                <div class="profile-pic bg-icon-profile" id="profile-container">
+                    <img src="profile-pic-placeholder.png" alt="Profile" id="profile-img">
+                    <i class="fas fa-user" id="default-icon"></i> <!-- Default icon when no image is available -->
+                </div>                
+            </div>
+        </div>        
+
+        <div class="welcome-section">
+            <div class="profile-banner">
+                <img src="profile-pic-placeholder.png" alt="Profile Image">
+                <h2>Muhammad Akmal Bin Marzuki</h2>
+            </div>
+
+            <div class="content-boxes">
+                <div class="box">Box 1 Content</div>
+                <div class="box">Box 2 Content</div>
+                <div class="box">Box 3 Content</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggle-btn');
+
+        toggleBtn.addEventListener('click', function () {
+            sidebar.classList.toggle('closed');
+        });
+
+    window.addEventListener('DOMContentLoaded', function() {
+        const profileImg = document.getElementById('profile-img');
+        const defaultIcon = document.getElementById('default-icon');
+
+        // Function to check if the image is available
+        function checkProfileImage() {
+            const imgSrc = profileImg.getAttribute('src');
+
+            // Check if the image source is the placeholder or if it's an actual uploaded image
+            if (imgSrc === 'profile-pic-placeholder.png' || imgSrc === '' || !imgSrc) {
+                profileImg.classList.remove('loaded');
+                defaultIcon.classList.remove('hidden');
+            } else {
+                profileImg.classList.add('loaded');
+                defaultIcon.classList.add('hidden');
+            }
+        }
+
+        // Call the function on page load
+        checkProfileImage();
+    });
+</script>
+
+</body>
+</html>

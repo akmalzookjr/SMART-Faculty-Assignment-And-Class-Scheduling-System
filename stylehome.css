@@ -1,0 +1,1470 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    height: 100vh;
+    width: 100%;
+}
+
+.user-img{
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid #eee;
+    margin-left: -15px;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80px; 
+    background-color: #2E3B4E;
+    padding: .4rem .8rem;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active ~ .main-content {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+.sidebar.active {
+    width: 250px;
+}
+
+.sidebar #btn{
+    position: absolute;
+    color: #FFFFFF;
+    top: .4rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.sidebar.active #btn {
+    left: 90%;
+}
+
+.sidebar .top .logo {
+    color: #FFFFFF;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    opacity: 0;
+    font-weight: bold;
+}
+
+.sidebar.active .top .logo {
+    opacity: 1;
+}
+
+.top .logo i {
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.user p {
+    color: #FFFFFF;
+    opacity: 1;
+    margin-left: 1rem;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style-type: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li a{
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+    transition: all 0.5s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #3E5060;
+    color: #6C757D ;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sidebar .nav-item {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.sidebar.active .nav-item {
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    border-radius: .6rem;
+    padding: .4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    transition: all 0.2s ease;
+    opacity: 0;
+}
+
+.sidebar ul li:hover .tooltip {
+    opacity: 1;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.main-content {
+    position: relative;
+    background-color: #F9F9F9;
+    min-height: 100vh;
+    top: 0;
+    left: 80px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: #FFCCCC;
+}
+
+.logo{
+    /* background-color: blue; */
+}
+
+.logo img {
+    width: 100px;
+    transition: opacity 0.3s ease;
+}
+
+.logo img:hover{
+    opacity: 80%;
+}
+
+.nav_links{
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    background: none;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.icon:hover{
+    background-color: #E0E0E0;
+}
+
+.bg-icon {
+    background-color: #F2F2F2;
+}
+
+/* MIDDLE: home */
+.logos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between the logos */
+    margin-bottom: 20px; /* Space between logos and name text */
+    position: relative;
+    padding: 10px;
+    padding-inline: 20px;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+    opacity: 0.5;
+    z-index: 2;
+    transition: all 0.5s ease;
+    top: -20px; /* Move logos slightly above the name */
+    border: 2px solid #D1D1D1;
+}
+
+.logos-container:hover {
+    opacity: 1;
+}
+
+.logo-image {
+    width: 80px; /* Adjust the size as needed */
+    height: auto;
+    filter: brightness(1); /* Increase brightness */
+    transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+    opacity: 0.9;
+    z-index: 3;
+}
+
+.logo-image:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    opacity: 1.5; /* Fully visible on hover */
+    z-index: 4;
+}
+
+.top-middle {
+    background-image: url('bannerlow.png'); /* Adjust the path as necessary */
+    background-size: cover;
+    background-position: center;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-middle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Darkens the background image */
+    z-index: 1;
+}
+
+.user-info-overlay {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+}
+
+.user-info-overlay h1 {
+    font-size: 2.5em;
+    margin-top: 20px; /* Space between logos and name */
+    animation: scaleFadeIn 0.5s ease forwards;
+}
+
+.user-info-overlay h3, .user-info-overlay h4 {
+    font-size: 1.5em;
+    margin: 5px 0;
+}
+.user-info-overlay h1, .user-info-overlay h3, .user-info-overlay h4 {
+    font-family: 'Roboto', sans-serif;
+    color: #f0f0f0;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    transition: color 0.3s ease-in-out, transform 0.3s ease; /* Smooth transition for scale and color */
+}
+
+.typing-text {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2s steps(40) forwards, blink 0.5s step-end infinite alternate;
+}
+
+.fade-in-text {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 2s ease-in forwards;
+    animation-delay: 0.5s; /* Delay for smoother effect */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+
+
+.middle {
+    background-color: #F9F9F9;
+    min-height: 100vh;
+    width: auto;
+    display: flex;
+    align-items: flex-start;
+    margin: 20px 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 1em;
+    padding: 20px 20px;
+    margin: 20px 20px;
+}
+
+/* MIDDLE: home */
+.dashboard {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.dashboard h1 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.dashboard-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 150px;
+    background-color:  #FFFFFF;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card:hover {
+    background-color:#F1F1F1;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-card i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+
+/* MIDDLE: lecturerlist */
+.list {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+.list.active {
+    width: 60%;
+}
+
+.list th, td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list th {
+    background-color: #4678b8;
+    color: white;
+    font-weight: bold;
+}
+
+.list tr:hover {
+    background-color: #f1f1f1;
+}
+
+.status-full {
+    color: red;
+    font-weight: bold;
+}
+.status-free {
+    color: green;
+    font-weight: bold;
+}
+.status-overload {
+    color: rgb(76, 0, 255);
+    font-weight: bold;
+}
+
+.add-btn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 20%;
+}
+
+.add-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.edit-btn, .delete-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #5a5959;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    color: #4678b8;
+}
+
+/* EDIT MODAL */
+.editmodal {
+    background: rgba(0, 0, 0, 0.8); /* Slightly darker background for better contrast */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.modalcontent {
+    max-width: 600px; /* Increased max width for better readability */
+    width: 90%; /* Responsive width */
+    background: white;
+    padding: 30px; /* More padding for better spacing */
+    border-radius: 10px; /* Slightly rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    position: relative;
+    z-index: 2;
+}
+
+.editmodal table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px; /* Space above the table */
+}
+
+.editmodal th, .editmodal td {
+    border: 1px solid #ddd;
+    padding: 12px; /* Increased padding for a more spacious feel */
+    text-align: left; /* Align text to the left for better readability */
+}
+
+.editmodal th {
+    background-color: #4CAF50; /* Change header color to a more vibrant green */
+    color: white; /* White text for better contrast */
+    font-weight: bold; /* Bold font for headers */
+}
+
+.editmodal tr:nth-child(even) {
+    background-color: #f9f9f9; /* Zebra striping for even rows */
+}
+
+.editmodal tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+    .modalcontent {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .editmodal th, .editmodal td {
+        padding: 10px; /* Smaller padding for table cells */
+    }
+}
+
+
+/* DETAILS */
+.lectdetail {
+    padding: 20px 20px;
+    min-height: 20px;
+    min-width: 500px;
+    width: 0;
+    background-color: rgb(243, 179, 179);
+    opacity: 0;
+    transition: width 0.5s ease, opacity 0.5s ease;
+    visibility: hidden;
+    border-radius: 8px;
+}
+.lectdetail.active {
+    opacity: 1;
+    width: 35%;
+    visibility: visible;
+}
+
+.lectdetail hr{
+    height:2px;
+    border-width:0;
+    color:rgb(0, 0, 0);
+    background-color:rgb(0, 0, 0);
+}
+
+#lectName, #lectCH{
+    font-weight: bold;
+}
+
+.lecturerDetailContent{
+    background-color: red;
+}
+.courseTable{
+    width: auto;
+    background-color: #212529;
+}
+
+/* STUDENT LIST */
+/* MIDDLE: lecturerlist */
+.schedule {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+.schedule.active {
+    width: 60%;
+}
+
+.schedule th, td {
+    text-align: center; /* Center align the text */
+    padding: 12px 15px;
+    border: 1px solid #ddd; /* Add border to each cell */
+    width: 80px; /* Set fixed width for equal size */
+}
+
+.schedule th {
+    background-color: #4678b8;
+    color: white;
+    font-weight: bold;
+}
+
+.schedule tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Additional styling for the schedule cells */
+.schedule td {
+    height: 60px; /* Set a consistent height for each time slot */
+    background-color: #ffffff; /* Background color for each cell */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.schedule td:hover {
+    background-color: #e0f7fa; /* Highlight color on hover */
+}
+
+.schedule .font-big {
+    font-size: 20px;
+}
+
+.schedule .font-small {
+    font-size: 10px;
+    font-weight: lighter;
+}
+
+/* STUDENT LIST */
+
+/* SWITCH */
+/* Filter Container General Styling */
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f1f1f1; /* Light grey background */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.top-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.dropdown-filters {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.filter {
+    flex-basis: 30%; /* Adjusts the width of each filter to fit well on the line */
+    margin-bottom: 10px;
+}
+
+/* Styling the Reset Button */
+.reset-btn {
+    padding: 8px 16px;
+    background-color: #ff5252; /* Red color for visibility */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.reset-btn:hover {
+    background-color: #ff6161;
+}
+
+/* Label and Select Box Styling */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 120px;
+    margin-right: 5px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.toggle-label {
+    font-weight: bold;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+
+.studentlist,
+.student-detail {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+}
+
+.studentlist.active {
+    width: 60%;
+}
+
+.studentlist th, td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.studentlist th {
+    background-color: #4678b8;
+    color: white;
+    font-weight: bold;
+}
+
+.studentlist tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* STUDENT DETAILS */
+.student-detail {
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.student-detail.active {
+    width: 35%; /* Adjust based on your design preference */
+    opacity: 1;
+    visibility: visible;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-left: 20px; /* Space between list and details */
+}
+
+/* MODAL STUDENT */
+.list-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.list-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;  /* Adjusted for better centering */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;  /* Adjust based on your design */
+    max-height: 70%;  /* Maximum height to avoid overflow of the whole screen */
+    overflow-y: auto;  /* Enables scrolling on overflow */
+    border-radius: 15px;
+    position: relative;  /* Ensures that it stays in the flow */
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* LECTURER LIST */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 2000px;
+}
+
+.header-container h1 {
+    margin: 0;
+}
+
+/* ADD MODAL */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1;
+}
+
+/* Modal content styling */
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+.lecturerlist,
+.lecturer-detail {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+}
+
+.lecturerlist.active {
+    width: 60%;
+}
+
+.lecturerlist th, td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.lecturerlist th {
+    background-color: #4678b8;
+    color: white;
+    font-weight: bold;
+}
+
+.lecturerlist tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* STUDENT DETAILS */
+.lecturer-detail {
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.lecturer-detail.active {
+    width: 35%; /* Adjust based on your design preference */
+    opacity: 1;
+    visibility: visible;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-left: 20px; /* Space between list and details */
+}
+
+.lecturerlist th, td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+.lecturerlist th {
+    background-color: #4678b8;
+    color: white;
+    font-weight: bold;
+}
+.lecturerlist tr:hover {
+    background-color: #f1f1f1;
+}
+.lecturercourselist th, td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+.lecturercourselist {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+}
+.lecturercourselist th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+.lecturercourselist tr:hover {
+    background-color: #f1f1f1;
+}
+.lect-detail-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    min-width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.lecturercourselist tbody {
+    display: block;
+    max-height: 200px; /* Adjust as needed */
+    overflow-y: auto;
+    width: 100%;
+}
+.lecturercourselist thead, .lecturercourselist tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+/* COURSE */
+/* COURSE SEARCH */
+.search-container {
+    margin: 10px 0;
+    text-align: center;
+}
+
+#searchBar {
+
+    width: 200%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+/* COURSE LIST */
+.courselist {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+}
+.course-detail {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+}
+
+.courselist.active {
+    width: 60%;
+}
+
+.courselist th, td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.courselist th {
+    background-color: #4678b8;
+    color: white;
+    font-weight: bold;
+}
+
+.courselist tr:hover {
+    background-color: #f1f1f1;
+}
+
+.course-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    background: red;
+}
+.course-list-container.active {
+    width: 60%; /* Adjust this value as needed */
+    transition: width 0.5s ease;
+}
+/* 
+.courselist {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+} */
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: flex-start; /* Ensures alignment to the left */
+    width: 100%; /* Takes the full width to avoid centering */
+}
+
+.pagination-controls {
+    display: flex;
+    gap: 5px; /* Adds space between pagination buttons */
+    margin-top: 15px;
+    padding: 15px; /* Optional padding to move away from the left edge */
+}
+
+
+/* COURSE DETAIL */
+.course-detail {
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.course-detail.active {
+    width: 35%;
+    opacity: 1;
+    visibility: visible;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-left: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.course-detail-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.course-detail-code,
+.course-detail-ch {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.course-sections-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.sections-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+}
+
+.sections-table th, td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+.sections-table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+.sections-table tbody {
+    display: block;
+    max-height: 200px; /* Adjust as needed */
+    overflow-y: auto;
+    width: 100%;
+}
+
+.sections-table thead, .sections-table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+
+
+.section-header {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #3e8e41;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.section-row:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.section-cell {
+    padding: 12px 15px;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+}
+
+.no-section-cell {
+    padding: 12px 15px;
+    color: #999;
+    text-align: center;
+    font-style: italic;
+}
+
+.section-row:first-child .section-cell {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.section-row:last-child .section-cell {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.course-edit-detail-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    min-width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.course-edit-detail-button:hover {
+    background-color: #45a049;
+}
+
+/* COURSE EDIT DETAIL MODAL */
+/* Shared style for close icon */
+.modal-close-icon {
+    position: absolute;
+    top: 10px; /* Adjust this value to your desired positioning */
+    right: 10px; /* Adjust this value to your desired positioning */
+    font-size: 24px;
+    cursor: pointer;
+    color: #333; /* Adjust color as needed */
+    z-index: 10;
+}
+
+.addsection-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+.section-list-table-container {
+    max-height: 200px; /* Adjust this value as needed */
+    overflow-y: auto;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+}
+
+.section-list-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.section-list-table th,
+.section-list-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#addSectionButton {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#addSectionButton:hover {
+    background-color: #45a049;
+}
+
+/* PAGING */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-controls button {
+    background-color: #4CAF50; /* Default green color */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.pagination-controls button:hover:not(.disabled) {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.1); /* Slightly larger on hover */
+}
+
+.pagination-controls button.disabled {
+    background-color: #e0e0e0; /* Gray color for disabled */
+    color: #666;
+    cursor: not-allowed;
+}
+
+.pagination-controls button.active {
+    background-color: #333; /* Dark gray for active page */
+    color: white;
+}
+
+.pagination-controls button:focus {
+    outline: none;
+}
+
+/* SCHEDULELIST */
+/* SCHEDULE BOX MODAL */
+/* Modal background */
+.schedule-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal content */
+.schedule-modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+    padding: 20px;
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+/* Close button */
+.schedule-close-modal {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.schedule-close-modal:hover {
+    color: #000;
+}
+
+/* Modal heading */
+.schedule-modal-content h2 {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* Modal details section */
+.modal-details p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.modal-details strong {
+    color: #333;
+}
+
+/* Form elements */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    color: #333;
+    outline: none;
+}
+
+.schedule-submit-btn {
+    width: 100%;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.schedule-submit-btn:hover {
+    background-color: #357abd;
+}
+
+
+
+
+

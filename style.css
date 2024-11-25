@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #e4e9f7;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: #fff;
+    display: flex;
+    width: 800px; /* Adjust the width as needed */
+    height: 450px; /* Adjust the height as needed */
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.signin-left, .signin-right {
+    width: 50%; /* Divide container into two equal parts */
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-left {
+    background: #fff;
+}
+
+.signin-right {
+    background: #4678b8;
+    color: #fff;
+}
+
+.signin-right .logo {
+    width: 150px; /* Adjust the width according to your logo size */
+    margin-bottom: 20px; /* Space between the logo and the welcome text */
+    background-color: white;
+    padding: 10px; /* Add some padding to create space between the logo and the border */
+    border-radius: 6%; /* Make the background circular */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for depth */
+    margin-top: -500px;
+}
+
+.signin-right h2 {
+    text-align: center;
+}
+
+.signin-left h2, .signin-right h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.signin-left form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-left label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.signin-left input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.signin-left button {
+    padding: 10px;
+    background: #4678b8;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.signin-left button:hover {
+    background: #355a7c;
+}
+
+.extra-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.extra-options label{
+    margin-top: 17px;
+    color: #4678b8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.extra-options a {
+    color: #4678b8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.signup-btn {
+    margin-top: 5px;
+    padding: 6px 20px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.signup-btn:hover {
+    background: #fff;
+    color: #4678b8;
+}

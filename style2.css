@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    background-color: #e4e9f7;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.sidebar.closed {
+    width: 60px; /* Minimized width when closed */
+    align-items: center; /* Center the content */
+}
+
+/* Navigation links */
+.nav-links {
+    list-style: none;
+    margin-top: 50px;
+    width: 100%;
+    padding-left: 5px; /* Remove padding */
+}
+
+.nav-links li {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.nav-links .icon {
+    margin-right: 15px;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Set fixed width for the icon */
+    color: #5a5959;
+}
+
+.sidebar.closed .nav-links a {
+    justify-content: center; /* Center the icon inside the closed sidebar */
+    padding: 10px; /* Adjust padding for centered layout */
+}
+
+.nav-links .link-text {
+    flex-grow: 1;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #4678b8;
+}
+
+/* Hide text when sidebar is closed */
+.sidebar.closed .link-text {
+    display: none;
+}
+
+/* Logo behavior */
+.logo img {
+    width: 150px;
+    transition: opacity 0.3s ease;
+}
+
+.logo .logo-small {
+    display: none;
+    width: 60px;
+    margin-left: 5px;
+}
+
+.sidebar.closed .logo .logo-normal {
+    display: none; /* Hide large logo when sidebar is closed */
+}
+
+.sidebar.closed .logo .logo-small {
+    display: block; /* Show small logo in closed state */
+}
+
+/* Main content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.profile-icons {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    background: none;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Custom background for the icons */
+.bg-icon {
+    background-color: #f2f2f2; /* Light gray */
+    color: #5a5959;
+}
+
+.bg-icon:hover {
+    background-color: #d3d3d3; /* Darker gray on hover */
+}
+
+/* Profile picture background */
+.bg-icon-profile {
+    background-color: #ff69b4;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: 20px;
+}
+
+/* Profile image styling */
+.bg-icon-profile img {
+    width: 100%;
+    border-radius: 50%;
+    display: none; /* Hide the image by default */
+}
+
+/* Default icon styling */
+#default-icon {
+    font-size: 24px;
+    color: white;
+    display: block; /* Show the icon by default */
+}
+
+/* When the image is loaded, hide the default icon */
+.bg-icon-profile img.loaded {
+    display: block;
+}
+
+.bg-icon-profile #default-icon.hidden {
+    display: none;
+}
+
+.profile-pic img {
+    width: 100%; /* Full size of the div */
+    border-radius: 50%;
+}
+
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-banner {
+    background-color: #a464ea;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-banner img {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.content-boxes {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.box {
+    width: 30%;
+    height: 150px;
+    background-color: #ddd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
